@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA – Voice Assistant</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Ambient background orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">AURA</div>
+      <div class="status-bar">
+        <span class="status-dot" id="statusDot"></span>
+        <span class="status-text" id="statusText">Nepřipojeno</span>
+      </div>
+      <button class="settings-btn" onclick="toggleSettings()">⚙</button>
+    </header>
+
+    <!-- Main orb / visualizer -->
+    <main class="main">
+      <div class="orb-container">
+        <div class="voice-orb" id="voiceOrb" onclick="manualActivate()">
+          <div class="orb-ring ring-1"></div>
+          <div class="orb-ring ring-2"></div>
+          <div class="orb-ring ring-3"></div>
+          <div class="orb-core">
+            <div class="orb-icon" id="orbIcon">◉</div>
+          </div>
+        </div>
+        <p class="orb-hint" id="orbHint">Klikni nebo řekni "Hey Aura"</p>
+      </div>
+
+      <!-- Conversation feed -->
+      <div class="conversation" id="conversation">
+        <div class="message assistant">
+          <span class="msg-label">AURA</span>
+          <p>Ahoj! Jsem AURA, tvůj hlasový asistent. Klikni na kruh nebo řekni aktivační frázi.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bottom controls -->
+    <footer class="footer">
+      <div class="controls">
+        <button class="ctrl-btn" id="listenBtn" onclick="toggleListening()">
+          <span class="btn-icon">🎙</span>
+          <span>Poslouchat</span>
+        </button>
+        <button class="ctrl-btn" onclick="clearConversation()">
+          <span class="btn-icon">🗑</span>
+          <span>Smazat</span>
+        </button>
+        <button class="ctrl-btn" id="focusBtn" onclick="toggleFocus()">
+          <span class="btn-icon">🎯</span>
+          <span>Focus</span>
+        </button>
+      </div>
+    </footer>
+
+    <!-- Settings panel -->
+    <div class="settings-panel" id="settingsPanel">
+      <div class="settings-header">
+        <h2>Nastavení</h2>
+        <button onclick="toggleSettings()">✕</button>
+      </div>
+      <div class="settings-body">
+        <div class="setting-group">
+          <label>Aktivační fráze</label>
+          <div class="input-row">
+            <input type="text" id="wakeWordInput" value="hey aura" placeholder="např. hey aura" />
+            <button onclick="setWakeWord()">Uložit</button>
+          </div>
+        </div>
+        <div class="setting-group">
+          <label>WebSocket port</label>
+          <input type="number" id="wsPort" value="8765" />
+        </div>
+        <div class="setting-group">
+          <label>Připojení</label>
+          <button class="connect-btn" onclick="reconnect()">🔄 Znovu připojit</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

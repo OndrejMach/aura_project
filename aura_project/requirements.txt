@@ -1,0 +1,34 @@
+# AURA Voice Assistant – Python závislosti
+# Instalace: pip install -r requirements.txt
+
+# ── Core audio ────────────────────────────────────────────────────────────────
+sounddevice>=0.4.6          # Cross-platform audio I/O
+numpy>=1.24.0               # Numerické výpočty pro audio
+webrtcvad>=2.0.10           # Voice Activity Detection
+
+# ── Speech to Text ────────────────────────────────────────────────────────────
+faster-whisper>=1.0.0       # Optimalizovaný Whisper (doporučeno)
+# openai-whisper>=20231117  # Alternativa (pomalejší, ale jednodušší instalace)
+
+# ── Wake Word ─────────────────────────────────────────────────────────────────
+vosk>=0.3.45                # Offline wake word detection (bez API klíče)
+# pvporcupine>=3.0.0        # Picovoice (volitelné, přesnější, vyžaduje klíč)
+
+# ── AI ────────────────────────────────────────────────────────────────────────
+anthropic>=0.25.0           # Claude API
+
+# ── Text to Speech ────────────────────────────────────────────────────────────
+edge-tts>=6.1.9             # Microsoft Edge TTS (zdarma, vysoká kvalita)
+pyttsx3>=2.90               # Offline TTS fallback
+pygame>=2.5.0               # Přehrávání audio
+
+# ── WebSocket server ──────────────────────────────────────────────────────────
+websockets>=12.0
+
+# ── Konfigurace ───────────────────────────────────────────────────────────────
+python-dotenv>=1.0.0        # Načítání .env souboru
+keyring>=24.0.0             # Bezpečné ukládání API klíčů v OS
+
+# ── Volitelné ─────────────────────────────────────────────────────────────────
+# playsound>=1.3.0          # Alternativní přehrávač
+# elevenlabs>=1.0.0         # ElevenLabs TTS (vyžaduje API klíč)
