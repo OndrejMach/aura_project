@@ -39,7 +39,7 @@ class WebSocketServer:
             self._server.close()
             await self._server.wait_closed()
 
-    async def _handle_client(self, websocket: WebSocketServerProtocol, path: str):
+    async def _handle_client(self, websocket: WebSocketServerProtocol):
         """Zpracuje připojeného klienta."""
         self._clients.add(websocket)
         logger.info(f"🔗 Klient připojen: {websocket.remote_address}")

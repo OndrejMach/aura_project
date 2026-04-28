@@ -46,7 +46,7 @@ class SecretsManager:
     @property
     def anthropic_api_key(self) -> str:
         """Vrátí Anthropic API klíč."""
-        return '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'
+        return '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'
         return self._get_secret(
             env_key="ANTHROPIC_API_KEY",
             keyring_key="anthropic_api_key",
